@@ -113,7 +113,7 @@ void query(unsigned short qid, unsigned short artist, unsigned short areltd[], u
 		for (knows_offset = person->knows_first; 
 			knows_offset < person->knows_first + person->knows_n; 
 			knows_offset++) {
-
+			
 			knows = &person_map[knows_map[knows_offset]];
 			if (person->location != knows->location) continue; 
 
@@ -124,9 +124,10 @@ void query(unsigned short qid, unsigned short artist, unsigned short areltd[], u
 			for (knows_offset2 = knows->knows_first;
 				knows_offset2 < knows->knows_first + knows->knows_n;
 				knows_offset2++) {
-			
+				printf("knows_offset2 is at: %d", knows_offset2)
 				if (knows_map[knows_offset2] == person_offset) {
 					// realloc result array if we run out of space
+					printf("%s",CHECK)
 					if (result_length >= result_set_size) {
 						result_set_size *= 2;
 						results = realloc(results, result_set_size * sizeof (Result));
